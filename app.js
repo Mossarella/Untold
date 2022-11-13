@@ -24,11 +24,15 @@ const port = process.env.PORT|| 3000
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.enable('trust proxy'); 
 app.use(session({
   secret:"OURLITTLESECRET",
   resave:false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  proxy: true,
 }));
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -83,7 +87,6 @@ function(accessToken, refreshToken, profile, cb) {
   });
 }
 ));
-app.enable('trust proxy'); // add this line
 
 passport.use(new FacebookStrategy({
   clientID: process.env.CLIENT_ID_FB,
