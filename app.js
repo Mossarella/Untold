@@ -182,8 +182,12 @@ app.route("/login")
 
         if(user){
           
-          res.redirect("/secrets");
+          
           console.log("authen");
+          req.session.save(() => {
+            res.redirect("/secrets");
+          })
+         
         }
         else{
           console.log("wrongpass");
