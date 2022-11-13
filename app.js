@@ -31,6 +31,7 @@ app.use(session({
   saveUninitialized: true,
   proxy: true,
   sameSite: "none",
+  
 }));
 
 
@@ -66,13 +67,6 @@ passport.use(userData.createStrategy());
 // passport.serializeUser(userData.serializeUser());
 // passport.deserializeUser(userData.deserializeUser());
 
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
 
 
 
@@ -105,6 +99,15 @@ function(accessToken, refreshToken, profile, cb) {
   });
 }
 ));
+
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 ///////////////////////////////////////////////////////////
 
