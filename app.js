@@ -69,11 +69,11 @@ passport.use(userData.createStrategy());
 // passport.serializeUser(userData.serializeUser());
 // passport.deserializeUser(userData.deserializeUser());
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  done(null, user._id);
 });
 
 passport.deserializeUser(function(user, done) {
-  userData.findById(id, function(err, user) {
+  userData.findById(_id, function(err, user) {
     done(err, user);
   });
 });
