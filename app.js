@@ -110,7 +110,7 @@ function(accessToken, refreshToken, profile, cb) {
 app.route("/")
 .get((req, res) => {
 
-
+  console.log(isAuthenticated());
   if(req.isAuthenticated()){
     res.redirect("/secrets");
 
