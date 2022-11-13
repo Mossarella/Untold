@@ -21,6 +21,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 
 const app = express()
 const port = process.env.PORT|| 3000
+app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
 
 
@@ -28,7 +29,7 @@ app.enable('trust proxy');
 app.use(session({
   secret:"OURLITTLESECRET",
   resave:false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   proxy: true,
   // sameSite: "none",
   
@@ -37,7 +38,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.urlencoded({extended:true}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 ///////////////////////////////////////////////////////////
