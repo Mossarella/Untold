@@ -30,6 +30,7 @@ app.use(session({
   resave:false,
   saveUninitialized: false,
   proxy: true,
+  sameSite: "none",
 }));
 
 
@@ -109,7 +110,7 @@ function(accessToken, refreshToken, profile, cb) {
 app.route("/")
 .get((req, res) => {
 
-  console.log(req.isAuthenticated());
+
   if(req.isAuthenticated()){
     res.redirect("/secrets");
 
