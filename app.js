@@ -27,8 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.enable('trust proxy'); 
 app.use(session({
   secret:"OURLITTLESECRET",
-  resave:false,
-  saveUninitialized: false,
+  resave:true,
+  saveUninitialized: true,
   proxy: true,
   sameSite: "none",
 }));
