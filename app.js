@@ -83,6 +83,7 @@ function(accessToken, refreshToken, profile, cb) {
   });
 }
 ));
+app.enable('trust proxy'); // add this line
 
 passport.use(new FacebookStrategy({
   clientID: process.env.CLIENT_ID_FB,
