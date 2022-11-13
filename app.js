@@ -19,11 +19,11 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 ///////////////////////////////////////////////////////////
 
 
-const app = express()
 const port = process.env.PORT|| 3000
-app.use(bodyParser.urlencoded({extended:true}));
+const app = express()
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
-
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.enable('trust proxy'); 
 app.use(session({
@@ -39,7 +39,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 ///////////////////////////////////////////////////////////
 
@@ -57,6 +57,7 @@ var userSchema = new Schema({
   //when we use passport. This guy above is deprecate the passport will handle the schema
   secret:Array,
   googleId:String
+  
 });
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
@@ -67,7 +68,15 @@ var userData = mongoose.model('User', userSchema );
 passport.use(userData.createStrategy());
 // passport.serializeUser(userData.serializeUser());
 // passport.deserializeUser(userData.deserializeUser());
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
 
+passport.deserializeUser(function(user, done) {
+  userData.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
 
 
 
@@ -102,13 +111,7 @@ function(accessToken, refreshToken, profile, cb) {
 ));
 
 
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
 
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
 
 ///////////////////////////////////////////////////////////
 
