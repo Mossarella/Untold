@@ -27,10 +27,10 @@ app.set('view engine', 'ejs');
 app.enable('trust proxy'); 
 app.use(session({
   secret:"OURLITTLESECRET",
-  resave:true,
-  saveUninitialized: true,
+  resave:false,
+  saveUninitialized: false,
   proxy: true,
-  sameSite: "none",
+  // sameSite: "none",
   
 }));
 
@@ -187,7 +187,7 @@ app.route("/login")
           req.session.save(() => {
             res.redirect("/secrets");
           })
-         
+          console.log(req.isAuthenticated());
         }
         else{
           console.log("wrongpass");
