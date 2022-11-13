@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <div class=" centered flex-column"> 
+    <i class="fa-solid fa-mask fa-6x maskIcon3"></i>
+    <h1 class="display-3 mainFont font-weight-bold brown">UNTOLD</h1>
+    <p class="mainFont white">Don't keep your secrets, share them anonymously!</p>
+
+    <form action="/submit" method="POST">
+
+      <div class="form-group">
+        <input type="text" class="form-control text-center rounded-top widths blackForm " name="secret" placeholder="What's your secret?">
+        <button type="submit" class=" btn btn-block rounded-bottom text-center buttonBrown glassMorph">Submit</button>
+      </div>
+    </form>
+    <% if(secrets.length != 0){ %>
+      <div class="deleteWrapper">
+
+
+
+        <p class=" mainFont font-weight-bold brown">Your Secrets</p>
+        <form  action="/submit/delete" method="post">
+          <div class="form-group">
+            <select class="form-control text-center rounded-top  blackForm rounded-top" name="secret">
+              <% secrets.forEach(function(secret){ %>
+                <option class="form-control text-center rounded-top   rounded-top" value="<%= secret %>"><%= secret %></option>
+              <% }); %>
+            </select>
+            <button type="submit" class="btn btn-block rounded-bottom text-center buttonBrown glassMorph">Delete Secret</button>
+          </div>
+        </form>
+      </div>
+  <%  } %>
+
+
+  </div>
+</div>

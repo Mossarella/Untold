@@ -1,0 +1,46 @@
+<%- include('partials/header') %>
+<div class="container mt-5">
+  <div class="centered flex-column">
+    <h1 class=" mainFont brown font-weight-normal">Register</h1>
+    <p class="or">or <a class="or2" href="/login">Login</a></p>
+
+
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class=" ">
+        <div class="card-body">
+
+          <!-- Makes POST request to /login route -->
+          <form action="/register" method="POST">
+           
+             
+              <input autocomplete="off" placeholder="email" type="email" class="form-control rounded-top text-center blackForm" name="username">
+        
+           
+              
+              <input autocomplete="off" type="password" placeholder="password" class="form-control rounded-0 text-center blackForm" name="password">
+    
+            <button type="submit" class="btn btn-block rounded-bottom text-center buttonBrown glassMorph">Register</button>
+          
+            <a class="btn btn-block rounded glassMorph  btn-facebook" href="/auth/facebook" role="button">
+              Facebook Register
+            </a>
+            <a class="btn btn-block rounded glassMorph  btn-google" href="/auth/google" role="button">
+       
+              Google Register
+            </a>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+   
+    
+
+  </div>
+</div>
+</div>
+
+

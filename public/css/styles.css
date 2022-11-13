@@ -1,0 +1,164 @@
+:root{
+  --myColor1:#0A090C;
+  --myColor2:#3D1520;
+  --myColor3:#8D5535;
+  --myColor4:#CA8150;
+  --myColor5:#FED389;
+  --myFontMain:  'Arvo', serif;
+
+  --myFontSub: 'Lato', sans-serif;
+}
+.mainFont{
+  font-family: var(--myFontMain);
+}
+.subFont{
+  font-family: var(--myFontSub);
+}
+.maskIcon{
+  color: var(--myColor3);
+  top: -10px;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: -999;
+}
+.maskIcon2{
+  color: var(--myColor3);
+  top: 55px;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: -999;
+}
+.maskIcon3{
+  color: var(--myColor3);
+  top: 210px;
+  position: absolute;
+
+  z-index: -999;
+}
+.homeDiv{
+  position: relative;
+}
+.form-control, .btn {
+  border-radius: 0;
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  
+}
+body {
+  background-image: linear-gradient(to right bottom, #0a090c, #151218, #1e1921, #271e2a, #322432, #3c2939, #482f3f, #533445, #603a4b, #6d4050, #7b4655, #884c59);
+  background-repeat: no-repeat;
+  background-position: cover;
+  min-height: 100vh;
+
+
+}
+.brown{
+  color: #FED389;
+
+}
+
+.white{
+  color: white;
+}
+
+
+.centered {
+
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    text-align: center;
+}
+.icon{
+  color: var(--myColor4);
+  transition: 0.1s all ease-in-out;
+}
+.icon:hover{
+  color: var(--myColor3);
+}
+.glassMorph{
+
+box-shadow: 0 6px 4px 0 rgba(37, 18, 5, 0.37);
+backdrop-filter: blur( 16px );
+-webkit-backdrop-filter: blur( 16px );
+
+
+/* padding: 4em 4em 4em 4em; */
+}
+.button{
+  /* width: 120px; */
+  background-color: var(--myColor1);
+  color: white;
+  border: none;
+
+}
+.buttonBrown{
+  /* width: 120px; */
+  background-color: var(--myColor4);
+  color: white;
+  border: none;
+  transition: 0.1s all ease-in-out;
+}
+.buttonBrown:hover{
+  background-color:  var(--myColor3);
+}
+.secret-text {
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  background-color: var(--myColor1);
+  border-radius: 5px;
+  font-family: var(--myFontSub);
+}
+.secretWrapper{
+  max-height: 460px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+}
+.deleteWrapper{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.widths{
+  width: 350px;
+}
+.btn:hover{
+  color: white;
+}
+.widthsM{
+  width: 150px;
+}
+.blackForm{
+  background-color: var(--myColor1);
+  color: white;
+  border: none;
+}
+.blackForm:focus{
+  background-color: var(--myColor1);
+  color: white;
+  border: none;
+  position: relative;
+  /* border-color: #FF0000; */
+  /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6); */
+}
+.or{
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
+.or2{
+  text-decoration: none;
+  color: var(--myColor4);
+  font-size: 12px;
+}
+.or2:hover{
+  text-decoration: none;
+  color: var(--myColor3);
+  font-size: 12px;
+}
