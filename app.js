@@ -29,8 +29,9 @@ app.enable('trust proxy');
 app.use(session({
   secret:"OURLITTLESECRET",
   resave:false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   proxy: true,
+  cookie: {secure: false}
   // sameSite: "none",
   
 }));
