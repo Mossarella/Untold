@@ -19,7 +19,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 ///////////////////////////////////////////////////////////
 
 
-const port = process.env.PORT|| 3000
+const port = process.env.PORT|| 80
 const app = express()
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
