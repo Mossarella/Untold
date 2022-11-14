@@ -144,7 +144,7 @@ app.route("/auth/google/secrets")
 )
 app.route("/auth/facebook")
 .get(
-  passport.authenticate("facebook")
+  passport.authenticate("facebook",{scope:["profile"]})
 )
 
 app.route("/auth/facebook/secrets")
